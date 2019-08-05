@@ -9,6 +9,7 @@ import * as morgan from 'morgan';
 import * as bodyparser from 'body-parser';
 
 import { me } from './routes/me';
+import { report } from './routes/report';
 import { responses } from './methods/responses';
 
 const app = express();
@@ -29,6 +30,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', me);
+app.use('/reports', report);
 
 /**
  * |--------------------------------------------------

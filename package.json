@@ -7,7 +7,12 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "export NODE_ENV=test && bash reset-test.bash && npm run run:build && export NODE_ENV=test && nyc --reporter=clover --reporter=text mocha --exit './test/**/*.js'",
+    "start": "export NODE_ENV=dev && nodemon -x ts-node src/index.ts",
+    "start:prod": "node build/index.js",
+    "clean:build": "rm -rf build",
+    "build": "tsc",
+    "run:build": "npm run clean:build && npm run build"
   },
   "author": "Martin Borg",
   "license": "MIT",
