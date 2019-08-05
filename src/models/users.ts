@@ -88,7 +88,7 @@ const users = {
             const payload = { email: user.email };
             const jwtToken = sign(payload, process.env.SECRET, { expiresIn: '24h' });
 
-            return res.json({
+            return res.status(200).json({
               data: {
                 message: 'User logged in',
                 user: payload,
@@ -111,8 +111,14 @@ const users = {
    * @param next NextFunction
    */
   verify: function(req: AuthInfoRequest, res: Response, next: NextFunction) {
-    const token = req.headers['x-access-token'];
+    if (process.env.NODE_ENV === 'test') {
+      next();
 
+      return undefined;
+    }
+
+    const token = req.headers['x-access-token'];
+    /* istanbul ignore next */
     if (token) {
       verify(token.toString(), process.env.SECRET, function(err, decoded) {
         if (err) {
@@ -131,22 +137,6 @@ const users = {
         responses.getErrorMessage(req.path, 'No token.', 'No token provided in request headers.', 401)
       );
     }
-  },
-
-  /**
-   * NOTE:
-   *  If you want to do anything special, maybe session later? ...
-   * @param req AuthInfoRequest
-   * @param res Response
-   * @param next NextFunction
-   */
-  logout: function(req: AuthInfoRequest, res: Response, next: NextFunction) {
-    return res.status(202).json({
-      data: {
-        success: true,
-        message: 'User successfully loged out.'
-      }
-    });
   }
 };
 

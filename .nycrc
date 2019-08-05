@@ -1,15 +1,16 @@
 {
+    "extends": "@istanbuljs/nyc-config-typescript",
     "description": "",
     "reporter": [
         "lcov"
     ],
     "include": [
-      "build/**/*.js"
+      "src/**/*.ts"
     ],
     "exclude": [
       "coverage/",
-      "build/lib",
-      "build/routes/@Interfaces"
+      "src/lib",
+      "src/routes/@Interfaces"
     ],
     "all": true,
     "report-dir": ".coverage",

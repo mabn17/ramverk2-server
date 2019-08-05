@@ -18,8 +18,8 @@ switch (mode) {
     module.exports = server.listen(port, () =>
       console.log(`Listening on port ${port}`)
     );
-
     break;
+  /* istanbul ignore next */
   default:
     server.listen(port);
     server.on('error', err => {

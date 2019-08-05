@@ -28,7 +28,7 @@ const reports = {
 
       if (rows === undefined) {
         return res.status(401).json(
-          responses.getErrorMessage('/reports', 'Report not found.', 'Report title provided was not found.', 401)
+          responses.getErrorMessage('/reports', 'Data not found.', 'Conent is empty.', 401)
         );
       }
 
@@ -44,13 +44,7 @@ const reports = {
    * @param res Response
    */
   getOne: function (req: AuthInfoRequest, res: Response) {
-    const requestedKmom: String = req.params.kmom || 'EMPTY';
-
-    if (requestedKmom === 'EMPTY') {
-      return res.status(404).json(
-        responses.getErrorMessage(req.path, 'Invalid.', 'No parameter was given.', 404)
-      );
-    }
+    const requestedKmom: String = req.params.kmom;
 
     db.get('SELECT * FROM report_texts WHERE title = ?',
       requestedKmom,

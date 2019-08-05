@@ -20,7 +20,7 @@ app.use(cors());
 app.options('*', cors());
 app.disable('x-powered-by');
 
-// Disable loging if NODE_ENV=test
+/* istanbul ignore next */
 if (process.env.NODE_ENV !== 'test') {
   // use morgan to log at command line
   app.use(morgan('dev')); // 'combined' outputs the Apache style LOGs
@@ -31,7 +31,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', me);
-app.use('/auth', auth);
+app.use('/', auth);
 app.use('/reports', report);
 
 /**
