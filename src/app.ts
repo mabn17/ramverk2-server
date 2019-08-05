@@ -8,6 +8,7 @@ import * as cors from 'cors';
 import * as morgan from 'morgan';
 import * as bodyparser from 'body-parser';
 
+import { auth } from './routes/auth';
 import { me } from './routes/me';
 import { report } from './routes/report';
 import { responses } from './methods/responses';
@@ -30,6 +31,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 
 // Routes
 app.use('/', me);
+app.use('/auth', auth);
 app.use('/reports', report);
 
 /**
