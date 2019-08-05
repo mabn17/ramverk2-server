@@ -8,11 +8,36 @@ import * as showdown from 'showdown';
 import { AuthInfoRequest } from '../routes/@Interfaces/ExpressRequest';
 
 import { db } from '../db/database';
+import { escapeHtml } from '../methods/escape';
 import { responses } from '../methods/responses';
 
 const converter = new showdown.Converter();
-
 const reports = {
+  /**
+   * Gets all Report texts
+   * @param res Response
+   */
+  getAll: function (res: Response) {
+    db.all('SELECT * FROM report_texts',
+    (err, rows) => {
+      if (err) {
+        return res.status(500).json(
+          responses.getErrorMessage('/reports', 'Database error.', err.message, 500)
+        );
+      }
+
+      if (rows === undefined) {
+        return res.status(401).json(
+          responses.getErrorMessage('/reports', 'Report not found.', 'Report title provided was not found.', 401)
+        );
+      }
+
+      const text = rows;
+
+      return res.status(200).json({ data: text });
+    });
+  },
+
   /**
    * Gets a spesific Report text
    * @param req Request
@@ -50,6 +75,43 @@ const reports = {
           data: text
         });
       });
+  },
+
+  /**
+   * Creates a Report text
+   * @param req Request
+   * @param res Response
+   */
+  create: function (req: AuthInfoRequest, res: Response) {
+    const title = escapeHtml(req.body.title);
+    const text = escapeHtml(req.body.text);
+
+    if (title === '' || text === '') {
+      return res.status(401).json(
+        responses.getErrorMessage('/reports', 'Missing values.', 'Title or Text is missing in request.', 401)
+      );
+    }
+
+    db.run('INSERT INTO report_texts(title, data) VALUES (?, ?)',
+      title, text,
+      (err) => {
+        if (err) {
+          return res.status(500).json(
+            responses.getErrorMessage('/reports', 'Database error.', err.message, 500)
+          );
+        }
+
+        return res.status(201).json({
+          data: {
+              message: 'Your report was successfully created.',
+              data: {
+                title: title,
+                data: text
+              }
+          }
+        });
+      }
+    );
   }
 };
 
