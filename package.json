@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "export NODE_ENV=test && bash reset-test.bash && npm run run:build && export NODE_ENV=test && nyc --reporter=clover --reporter=text mocha --exit './test/**/*.js'",
+    "test": "export NODE_ENV=test && bash reset-test.bash && npm run run:build && export NODE_ENV=test && nyc --reporter=html --reporter=clover --reporter=text mocha --exit './test/**/*.js'",
     "start": "export NODE_ENV=dev && nodemon -x ts-node src/index.ts",
     "start:prod": "node build/index.js",
     "clean:build": "rm -rf build",

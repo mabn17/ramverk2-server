@@ -51,7 +51,7 @@ app.all(
     res
       .status(404)
       .json(
-        responses.getErrorMessage(req.url, 'Unknown route.', `Route '${req.url}' does not exists.`, 401)
+        responses.getErrorMessage(req.url, 'Unknown route.', `Route '${req.url}' does not exists.`, 404)
       );
   }
 );

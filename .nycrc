@@ -1,0 +1,17 @@
+{
+    "description": "",
+    "reporter": [
+        "lcov"
+    ],
+    "include": [
+      "build/**/*.js"
+    ],
+    "exclude": [
+      "coverage/",
+      "build/lib",
+      "build/routes/@Interfaces"
+    ],
+    "all": true,
+    "report-dir": ".coverage",
+    "temp-directory": "./.nyc_output"
+}
