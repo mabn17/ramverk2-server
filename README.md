@@ -1,6 +1,11 @@
 # Express TypeScript Server
 An express server for [Ramverk2 *v2*](https://dbwebb.se/kurser/ramverk2-v2)
 
+# Badges
+[![Build Status](https://travis-ci.org/mabn17/ramverk2-server.svg?branch=master)](https://travis-ci.org/mabn17/ramverk2-server)
+
+[![Build Status](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/?branch=master)
+
 ## Available Scripts
 In the project directory, you can run:
 
