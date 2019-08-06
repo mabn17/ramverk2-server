@@ -116,7 +116,7 @@ const users = {
 
       return undefined;
     }
-
+    /* istanbul ignore next */
     const token = req.headers['x-access-token'];
     /* istanbul ignore next */
     if (token) {

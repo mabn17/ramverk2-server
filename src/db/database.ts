@@ -9,11 +9,6 @@ import * as path from 'path';
 const sqlite = sqlite3.verbose();
 let db: sqlite3.Database;
 
-/**
- * Changing test.sqlite path becuase
- *  the tests are going to be run on the compiled code
- *    in another folder.
- */
 const fileName: string = process.env.NODE_ENV === 'test'
   ? '../../src/db/test.sqlite'
   : 'users.sqlite';
