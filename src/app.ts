@@ -22,8 +22,7 @@ app.disable('x-powered-by');
 
 /* istanbul ignore next */
 if (process.env.NODE_ENV !== 'test') {
-  // use morgan to log at command line
-  app.use(morgan('dev')); // 'combined' outputs the Apache style LOGs
+  app.use(morgan('dev'));
 }
 
 app.use(bodyparser.json());

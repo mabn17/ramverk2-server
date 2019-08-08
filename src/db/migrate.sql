@@ -16,6 +16,12 @@ CREATE TABLE IF NOT EXISTS report_texts (
     UNIQUE(title)
 );
 
+CREATE TABLE IF NOT EXISTS chat_messages (
+    from VARCHAR(255) NOT NULL,
+    to VARCHAR(255) DEFAULT null,
+    `data` TEXT NOT NULL
+);
+
 INSERT INTO site_texts(title, `data`) VALUES (
  "me",
  "# Min me-sida i kursen Ramverk2 v2

@@ -10,7 +10,8 @@
     "exclude": [
       "coverage/",
       "src/lib",
-      "src/routes/@Interfaces"
+      "src/routes/@Interfaces",
+      "src/sockets.ts"
     ],
     "all": true,
     "report-dir": ".coverage",
