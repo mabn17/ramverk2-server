@@ -11,7 +11,7 @@
       "coverage/",
       "src/lib",
       "src/routes/@Interfaces",
-      "src/sockets.ts"
+      "src/setup.ts"
     ],
     "all": true,
     "report-dir": ".coverage",

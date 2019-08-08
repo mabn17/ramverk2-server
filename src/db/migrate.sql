@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS report_texts (
 
 CREATE TABLE IF NOT EXISTS chat_messages (
     from VARCHAR(255) NOT NULL,
-    to VARCHAR(255) DEFAULT null,
+    room VARCHAR(255) DEFAULT null,
     `data` TEXT NOT NULL
 );
 

@@ -18,7 +18,6 @@ export class SocketServer {
     this.config(port);
     this.createServer(server);
     this.sockets();
-    this.listen();
   }
 
   private setMode(mode: string) {
@@ -37,7 +36,7 @@ export class SocketServer {
     this.io = ioServer(this.server);
   }
 
-  private listen(): void {
+  private getServer(): void {
     this.server.listen(this.port, () => {
         console.log(`Running server on port ${this.port}`);
     });
@@ -49,7 +48,7 @@ export class SocketServer {
       console.info(`Listening on port ${this.port} (${this.mode})`);
     });
 
-    this.io.on('connect', (socket: any) => {
+    this.io.on('connect', (socket) => {
         console.log('Connected client on port %s.', this.port);
         socket.on('message', (m: any) => {
             console.log('[server](message): %s', JSON.stringify(m));
@@ -60,5 +59,19 @@ export class SocketServer {
             console.log('Client disconnected');
         });
     });
+  }
+
+  private getTestServer(): Server {
+    return this.server.listen(this.port, () => {
+      console.log(`Running server on port ${this.port}`);
+    });
+  }
+
+  public init(): any {
+    if (this.mode === 'test') {
+      return this.getTestServer();
+    }
+
+    return this.getServer();
   }
 }
