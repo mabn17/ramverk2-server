@@ -8,9 +8,18 @@ import * as cors from 'cors';
 import * as morgan from 'morgan';
 import * as bodyparser from 'body-parser';
 
+// import * as mongoose from 'mongoose';
+
+// const dsn =  process.env.MONGO_DSN || 'mongodb://localhost:27017/ramverk2';
+
+// mongoose.Promise = global.Promise;
+
+// mongoose.connect(dsn);
+
 import { auth } from './routes/auth';
 import { me } from './routes/me';
 import { report } from './routes/report';
+import { message } from './routes/message';
 import { responses } from './methods/responses';
 
 const app = express();
@@ -32,6 +41,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use('/', me);
 app.use('/', auth);
 app.use('/reports', report);
+app.use('/mongo', message);
 
 /**
  * |--------------------------------------------------
