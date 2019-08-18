@@ -12,6 +12,7 @@
 /coverage
 .coverage/
 .nyc_output/
+/data
 
 # production
 /build

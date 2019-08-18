@@ -11,6 +11,7 @@
  */
 
 import * as assert from 'assert';
+var should = require('chai').should();
 
 describe('Testing asserts', () => {
   it('It should have an assert', () => {

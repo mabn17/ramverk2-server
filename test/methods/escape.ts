@@ -10,6 +10,7 @@
  */
 
 import * as assert from 'assert';
+var should = require('chai').should();
 import { escapeHtml } from '../../src/methods/escape';
 
 const html = '<h1>A h1 tag</h1>';

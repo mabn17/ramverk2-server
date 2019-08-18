@@ -7,16 +7,18 @@
     "test": "test"
   },
   "scripts": {
-    "test": "bash reset-test.bash && sleep 4 && rm -rf .coverage .nyc_output && export NODE_ENV=test && nyc --cache false --reporter=html --reporter=clover --reporter=text mocha --timeout 15000 --require ts-node/register --exit './test/**/*.ts'",
+    "test": "npm run mongodb && bash reset-test.bash && sleep 4 && rm -rf .coverage .nyc_output && export NODE_ENV=test && nyc --cache false --reporter=html --reporter=clover --reporter=text mocha --timeout 15000 --require ts-node/register --exit './test/**/*.ts' && npm run stopMongodb",
     "start": "export NODE_ENV=dev && nodemon -x ts-node src/index.ts",
     "start:prod": "node build/index.js",
     "clean:build": "rm -rf build",
     "build": "tsc",
     "run:build": "npm run clean:build && npm run build",
-    "docker-latest": "docker-compose run node_latest npm test",
-    "docker-10": "docker-compose run node_10 npm test",
-    "docker-8": "docker-compose run node_8 npm test",
-    "docker-6": "docker-compose run node_6 npm test"
+    "test1": "docker-compose run node_latest npm test",
+    "test2": "docker-compose run node_10 npm test",
+    "test3": "docker-compose run node_8 npm test",
+    "test4": "docker-compose run node_6 npm test",
+    "mongodb": "docker-compose run -d --name mongodb mongodb",
+    "stopMongodb": "docker stop mongodb && docker rm mongodb"
   },
   "author": "Martin Borg",
   "license": "MIT",

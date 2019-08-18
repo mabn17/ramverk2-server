@@ -10,6 +10,7 @@
  */
 
 import * as assert from 'assert';
+var should = require('chai').should();
 import { responses } from '../../src/methods/responses';
 
 const res = responses.getErrorMessage('s', 't', 'd', 1);

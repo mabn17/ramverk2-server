@@ -10,7 +10,7 @@
  */
 
 process.env.NODE_ENV = 'test';
-
+var should = require('chai').should();
 import * as server from '../../src/index';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');

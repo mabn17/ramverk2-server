@@ -17,4 +17,8 @@ message.get('/', (req: AuthInfoRequest, res: express.Response, _next: express.Ne
   messages.getAll(res)
 );
 
+message.post('/', (req: AuthInfoRequest, res: express.Response, _next: express.NextFunction) =>
+  messages.insertData(res, req)
+);
+
 export { message };

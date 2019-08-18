@@ -41,7 +41,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use('/', me);
 app.use('/', auth);
 app.use('/reports', report);
-app.use('/mongo', message);
+app.use('/chat', message);
 
 /**
  * |--------------------------------------------------

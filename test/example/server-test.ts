@@ -15,6 +15,7 @@ process.env.NODE_ENV = 'test';
 import * as server from '../../src/index';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
+var should = require('chai').should();
 
 chai.should();
 chai.use(chaiHttp);
