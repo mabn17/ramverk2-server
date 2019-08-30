@@ -6,23 +6,26 @@ An express server for [Ramverk2 *v2*](https://dbwebb.se/kurser/ramverk2-v2)
 
 [![Build Status](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-server/?branch=master)
 
-## Available Scripts
-In the project directory, you can run:
+# Installation
+1. Clone the repo `git clone git@github.com:mabn17/ramverk2-server.git`.
+2. Install the dependencies `cd ramverk2-server && npm install`
+3. Change your enviremental variables inside `config/env/` *(You have to rename `.env.e.production` to `.env.production` if you want to use it in production mode)*
+3. Start the app `npm start`
 
-#### `npm run start`
-Runs the app in the development mode.
-Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+## Requirements
+1. [Docker](https://www.docker.com/)
+2. [Sqlite3](https://www.sqlite.org/index.html)
+3. [MongoDB](https://www.mongodb.com/)
 
-The server will reload if you make edits.
-You will also see all requests in the console.
+# Testing 
+1. `npm test` - To see reports from the unittests.  
+2. `npm run test1` - Tests on the lastest npm version. 
+3. `npm run test2` - Tests on the lastest npm version 10.  
+4. `npm run test3` - Tests on the lastest npm version 8.
+5. `npm run test4` - Tests on the lastest npm version 6.
 
-#### `npm run start:prod`
-Starts the application from the `build` folder.
-
-#### `npm run build`
-Builds the app for production to the `build` folder.
-It correctly bundles the server in production mode and optimizes the build for the best performance.
-
-
-#### `npm run test`
-Starts a test server on [http://localhost:3000](http://localhost:3000) and runs all tests inside the `test` folder.
+## API Documentation
+1. [Me](src/routes/doc/Me.md) - Index route (Sqlite3)
+2. [Authentication](src/routes/doc/Auth.md) - Login & Register route(Sqlite3)
+3. [Reports](src/routes/doc/Report.md) - Create new and Get all/spesific reports (Sqlite3)
+4. [Chat](src/routes/doc/Message.md) - Save and get chat messages (MongoDB)
