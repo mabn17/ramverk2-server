@@ -20,11 +20,11 @@ chai.should();
 chai.use(chaiHttp);
 
 describe('GET /reports/:kmom', () => {
-  describe('GET /reports/kmom01', () => {
+  describe('GET /reports/1', () => {
     it('Should exist', (done) => {
       chai
         .request(server)
-        .get('/reports/kmom01')
+        .get('/reports/1')
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.an('object');

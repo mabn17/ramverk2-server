@@ -34,7 +34,7 @@ const reports = {
 
       const text = rows;
 
-      return res.status(200).json({ data: text });
+      return res.status(200).json({ extra: text });
     });
   },
 
@@ -80,13 +80,16 @@ const reports = {
     const title = escapeHtml(req.body.title);
     const text = escapeHtml(req.body.text);
 
+    const update = escapeHtml(req.body.update) === 'y' ? true : false;
+    const dbQuery = update ? 'INSERT OR REPLACE INTO' : 'INSERT INTO';
+
     if (title === '' || text === '') {
       return res.status(401).json(
         responses.getErrorMessage('/reports', 'Missing values.', 'Title or Text is missing in request.', 401)
       );
     }
 
-    db.run('INSERT INTO report_texts(title, data) VALUES (?, ?)',
+    db.run(`${dbQuery} report_texts(title, data) VALUES (?, ?)`,
       title, text,
       (err) => {
         if (err) {

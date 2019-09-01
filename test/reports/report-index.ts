@@ -28,8 +28,8 @@ describe('Test for route /reports', () => {
         .request(server)
         .get('/reports')
         .end((err, res) => {
-          const response = res.body.data;
-
+          const response = res.body.extra;
+          console.log(response);
           res.should.have.status(200);
           assert.equal(response.length, 2);
 
@@ -94,7 +94,7 @@ describe('Test for route /reports', () => {
         .request(server)
         .get('/reports')
         .end((err, res) => {
-          const response = res.body.data;
+          const response = res.body.extra;
 
           res.should.have.status(200);
           assert.equal(response.length, 3);

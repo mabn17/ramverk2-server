@@ -16,12 +16,6 @@ CREATE TABLE IF NOT EXISTS report_texts (
     UNIQUE(title)
 );
 
-CREATE TABLE IF NOT EXISTS chat_messages (
-    from VARCHAR(255) NOT NULL,
-    room VARCHAR(255) DEFAULT null,
-    `data` TEXT NOT NULL
-);
-
 INSERT INTO site_texts(title, `data`) VALUES (
  "me",
  "# Min me-sida i kursen Ramverk2 v2
@@ -37,33 +31,42 @@ På fritiden gillar jag att umgås med mina vänner och min familj. Jag gillar a
 
 INSERT INTO report_texts (title, `data`) VALUES
 (
-  "kmom01",
-  "###Berätta utförligt om din syn på nodejs backend ramverk och berätta vilket ramverk du valde och varför.
-Inget Svar ..
+  "1",
+  "# Angular Website
+A frontend for [Ramverk2 *v2*](https://dbwebb.se/kurser/ramverk2-v2)
 
-###Berätta om din katalogstruktur och hur du organiserade din kod, hur tänkte du?
-Inget Svar ..
+# Badges
+[![Build Status](https://travis-ci.org/mabn17/ramverk2-client.svg?branch=master)](https://travis-ci.org/mabn17/ramverk2-client)
 
-###Använde du någon form av scaffolding som ditt valda ramverk erbjuder?
-Inget Svar ..
+[![Build Status](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/build-status/master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mabn17/ramverk2-client/?branch=master)
 
-###Vad är din TIL för detta kmom?
-Inget Svar .."
+## Requirements
+[Server](https://github.com/mabn17/ramverk2-server) - Click for more informtaion on how to install and set up.
+
+## Installation
+1. Clone the repo `git clone git@github.com:mabn17/ramverk2-client.git`.
+2. Install the dependencies `npm install`
+3. Start the app `npm start`
+
+## Testing
+1. To see reports from the unittests `npm test`
+2. Tests with Selenium `npm run test:ci`
+
+## Routes
+***/*** - Home  
+***/add/redovisa/:kmom*** - Eddit given report (requires authenticated user to send), redirects to /add/redovisa if there is no matching title.  
+***/add/redovisa*** - Add report (requires authenticated user to send)  
+***/chat*** - Chat using sockets  
+***/redovisa/:kmom*** - To see a spesific report  
+***/om*** - The about page  
+***/login*** - The login page  
+***/register*** - The registration page  
+***/\*\**** - Catching unknown routes with an error message
+
+### Github
+More information and the sourcecode can be found at [https://github.com/mabn17/ramverk2-client](https://github.com/mabn17/ramverk2-client)."
 ),
 (
- "kmom02",
- "###Vilket JavaScript-ramverk valde du och varför?
-Inget Svar *KMOM02*..
-
-###Hur gick det att sedan implementera din me-sida i ramverket?
-Inget Svar *KMOM02*..
-
-###Vilka fördelar ser du med ett JavaScript ramverk jämfört med vanilla JavaScript?
-Inget Svar *KMOM02*..
-
-###Vilka lärdomar gjorde du dig när du implementerade autentisering med JWT på servern?
-Inget Svar *KMOM02*..
-
-###Vad är din TIL för detta kmom?
-Inget Svar *KMOM02*.."
+  "2",
+ "### 2"
 );
