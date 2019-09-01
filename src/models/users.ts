@@ -17,7 +17,7 @@ const users = {
    * @param email user email
    * @param pass user pass
    */
-  create: function (res: Response, email: string, pass: string) {
+  create: function (res: Response, email: string, pass: string, birthday?: string) {
     if (email === '' || pass === '') {
       return res.status(401).json(
         responses.getErrorMessage('/register', 'Missing values.', 'Email or password missing in request.', 401)
@@ -30,9 +30,10 @@ const users = {
           responses.getErrorMessage('/register', 'bcrypt error.', 'Error encrypting the given password.', 500)
         );
       }
-      db.run('INSERT INTO users (email, password) VALUES (?, ?)',
+      db.run('INSERT INTO users (email, password, birthday) VALUES (?, ?, ?)',
         email,
-        encrypted, (err) => {
+        encrypted,
+        birthday, (err) => {
           if (err) {
             return res.status(500).json(
               responses.getErrorMessage('/register', 'Database error.', err.message, 500)

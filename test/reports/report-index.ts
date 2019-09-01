@@ -10,7 +10,9 @@
  */
 
 process.env.NODE_ENV = 'test';
+
 var should = require('chai').should();
+
 import * as server from '../../src/index';
 import * as chai from 'chai';
 import chaiHttp = require('chai-http');
@@ -49,8 +51,6 @@ describe('Test for route /reports', () => {
           res.should.have.status(201);
           assert.equal(response.data.title, content.title);
           assert.equal(response.data.data, content.data);
-
-          console.log(response.data);
 
           done();
         });

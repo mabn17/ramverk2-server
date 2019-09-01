@@ -16,6 +16,7 @@ Creates a new user.
 {
     "email": "joe25@example.com",
     "password": "IAmSecure",
+    "birthday": "YYYY/MM/DD" // OPTONALL
 }
 ```
 
