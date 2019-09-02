@@ -1,11 +1,12 @@
 build:
-  environment:
-      docker: true
+  my-node:
+    services:
+      mongo: 4
   nodes:
     coverage:
       tests:
         override:
-          - command: npm test
+          - command: npm run test:ci
             coverage:
               file: .coverage/clover.xml
               format: clover
