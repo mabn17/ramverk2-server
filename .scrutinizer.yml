@@ -1,9 +1,7 @@
 build:
+  environment:
+      docker: true
   nodes:
-    node-that-needs-docker:
-      environment:
-        docker:
-          remote_engine: true
     coverage:
       tests:
         override:
