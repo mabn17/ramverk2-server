@@ -31,7 +31,7 @@ describe('Test for route /reports', () => {
         .get('/reports')
         .end((err, res) => {
           const response = res.body.extra;
-          console.log(response);
+
           res.should.have.status(200);
           assert.equal(response.length, 2);
 
