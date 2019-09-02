@@ -1,7 +1,8 @@
-services:
-  - docker
 build:
   nodes:
+    node-that-needs-docker:
+      environment:
+        docker: true
     coverage:
       tests:
         override:
