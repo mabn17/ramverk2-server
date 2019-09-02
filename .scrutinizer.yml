@@ -2,11 +2,12 @@ build:
   nodes:
     node-that-needs-docker:
       environment:
-        docker: true
-      coverage:
-        tests:
-          override:
-            - command: npm test
-              coverage:
-                file: .coverage/clover.xml
-                format: clover
+        docker:
+          remote_engine: true
+    coverage:
+      tests:
+        override:
+          - command: npm test
+            coverage:
+              file: .coverage/clover.xml
+              format: clover
