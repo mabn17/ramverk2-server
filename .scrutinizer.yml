@@ -1,8 +1,7 @@
 build:
-  my-node:
-    services:
-      mongo: 4
   nodes:
+    environment:
+        mongodb: true
     coverage:
       tests:
         override:
