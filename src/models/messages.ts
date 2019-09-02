@@ -7,7 +7,7 @@ import { Response, Request } from 'express';
 const mongo = require('mongodb').MongoClient;
 
 const messages = {
-  dns: process.env.MONGO_DSN || 'mongodb://127.0.0.1:27017/mumin',
+  dns: process.env.DBWEBB_DSN || process.env.MONGO_DSN || 'mongodb://127.0.0.1:27017/mumin',
 
   getAll: async function(res: Response) {
     messages.find(messages.dns, 'chat').then((chatMessages) => {

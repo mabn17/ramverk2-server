@@ -1,7 +1,7 @@
 build:
+  environment:
+    mongodb: true
   nodes:
-    environment:
-        mongodb: true
     coverage:
       tests:
         override:
