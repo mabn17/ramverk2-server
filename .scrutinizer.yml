@@ -3,10 +3,10 @@ build:
     node-that-needs-docker:
       environment:
         docker: true
-    coverage:
-      tests:
-        override:
-          - command: npm test
-            coverage:
-              file: .coverage/clover.xml
-              format: clover
+      coverage:
+        tests:
+          override:
+            - command: npm test
+              coverage:
+                file: .coverage/clover.xml
+                format: clover
